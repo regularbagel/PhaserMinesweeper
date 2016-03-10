@@ -38,11 +38,15 @@ gameState.prototype = {
     },
     
     create: function () {
-        
+        this.initBoard();
     },
 
     update: function () {
         
+    },
+    
+    initBoard: function () {
+        this.board = new Board(gameProperties.boardWidth, gameProperties.boardHeight);
     },
 };
 
