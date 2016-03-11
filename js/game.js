@@ -47,6 +47,7 @@ gameState.prototype = {
     
     initBoard: function () {
         this.board = new Board(gameProperties.boardWidth, gameProperties.boardHeight);
+        this.board.moveTo(this.boardLeft, this.boardTop);
     },
 };
 
