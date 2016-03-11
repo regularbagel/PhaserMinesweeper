@@ -28,9 +28,8 @@ var gameState = function(game){
 gameState.prototype = {
     
     init: function () {
-         this.boardTop = (gameProperties.screenHeight - (gameProperties.tileHeight * gameProperties.boardHeight)) * 0.5;
-         this.boardLeft = (gameProperties.screenWidth - (gameProperties.tileWidth * gameProperties.boardWidth)) * 0.5;
-  
+        this.boardTop = (gameProperties.screenHeight - (gameProperties.tileHeight * gameProperties.boardHeight)) * 0.5;
+        this.boardLeft = (gameProperties.screenWidth - (gameProperties.tileWidth * gameProperties.boardWidth)) * 0.5;
     },
     
     preload: function () {
@@ -46,9 +45,18 @@ gameState.prototype = {
     },
     
     initBoard: function () {
-        this.board = new Board(gameProperties.boardWidth, gameProperties.boardHeight);
+        this.board = new Board(gameProperties.boardWidth, gameProperties.boardHeight, gameProperties.totalMines);
         this.board.moveTo(this.boardLeft, this.boardTop);
     },
+    
+    revealTile: function () {
+        
+    },
+    
+    flagTile: function () {
+        
+    },
+    
 };
 
 var game = new Phaser.Game(gameProperties.screenWidth, gameProperties.screenHeight, Phaser.AUTO, 'gameDiv');

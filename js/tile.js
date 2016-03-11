@@ -60,7 +60,7 @@ var Tile = function (column, row, group) {
         currentValue = value;
     };
     
-    this.getValue = function() {
+    this.getValue = function () {
         return currentValue;
     };
     
