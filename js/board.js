@@ -1,24 +1,28 @@
-var Board = function (columns, rows) {
-  
+var Board = function (columns, rows, mines) {
+    
     var board = [];
     var group = game.add.group();
     
-    for (var y=0; y<rows; y++) {
-        var row = [];
- 
-        for (var x=0; x<columns; x++) {
-            var tile = new Tile(x, y, group);
-            row.push(tile);
+    var init = function () {
+        for (var y=0; y<rows; y++) {
+
+            var row = [];
+
+            for (var x=0; x<columns; x++) {
+
+                var tile = new Tile(x, y, group);
+                row.push(tile);
+            }
+            
+            board.push(row);
         }
         
-        board.push(row);
-    }
-    
-    setMines();
+        setMines();
+    };
     
     this.moveTo = function (x, y) {
-      group.x = x;
-      group.y = y;
+        group.x = x;
+        group.y = y;
     };
     
     var getRandomTile = function () {
@@ -38,6 +42,8 @@ var Board = function (columns, rows) {
             }
             
             tile.setValue(tile.states.MINE);
-        } 
+        }
     };
-}
+    
+    init();
+};
