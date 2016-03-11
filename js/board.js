@@ -13,4 +13,9 @@ var Board = function (columns, rows) {
         
         board.push(row);
     }
+    
+    this.moveTo = function (x, y) {
+      group.x = x;
+      group.y = y;
+    };
 }
