@@ -17,8 +17,43 @@ var Tile = function (column, row, group) {
         MINE: 13,
   };
   
+  this.column = column;
+  this.row = row;
+  this.x = column * gameProperties.tileWidth;
+  this.y = row * gameProperties.tileHeight;
+  
+  var tile = this;
   var currentFrame = states.DEFAULT;
   var currentState = states.ZERO;
-  
   var sprite = game.add.sprite(column * gameProperties.tileWidth, row * gameProperties.tileHeight, graphicAssets.tiles.name, currentFrame, group);
+
+  var init = function () {
+      sprite.inputEnabled = true;
+      sprite.input.useHandCursor = true;
+      sprite.events.onInputOut.add(rollOut, this);
+      sprite.events.onInputOver.add(rollOver, this);
+      sprite.events.onInputDown.add(click, this);
+  };
+  
+  var rollOver = function () {
+      var tween = game.add.tween(sprite);
+      tween.to({x:tile.x-3, y:tile.y-3}, 100, Phaser.Easing.Exponential.easeOut);
+      tween.start();
+  };
+  
+  var rollOut = function () {
+      var tween = game.add.tween(sprite);
+      tween.to({x:tile.x, y:tile.y}, 100, Phaser.Easing.Exponential.easeOut);
+      tween.start();
+  }
+  
+  var click = function () {
+      tile.reveal();
+  }
+  
+  this.reveal = function () {
+      sprite.animations.frame = currentValue;
+      sprite.inputEnabled = false;
+  };
+  
 }
