@@ -28,6 +28,14 @@ var Board = function (columns, rows) {
     };
     
     var setMines = function () {
-
+        var tile = getRandomTile();
+        
+        for (var i=0; i<mines; i++) {
+            while(tile.getValue() == tile.states.MINE) {
+                tile = getRandomTile();
+            }
+            
+            tile.setValue(tile.states.MINE);
+        } 
     };
 }
