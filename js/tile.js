@@ -1,6 +1,6 @@
 var Tile = function (column, row, group) {
     
-    var states = {
+    this.states = {
         ZERO: 0,
         ONE: 1,
         TWO: 2,
@@ -23,7 +23,7 @@ var Tile = function (column, row, group) {
     this.y = row * gameProperties.tileHeight;
     
     var tile = this;
-    var currentState = states.DEFAULT;
+    var currentState = this.states.DEFAULT;
     var currentValue = 0;
     var sprite = game.add.sprite(this.x, this.y, graphicAssets.tiles.name, currentState, group);
     
