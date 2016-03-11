@@ -56,5 +56,13 @@ var Tile = function (column, row, group) {
         sprite.inputEnabled = false;
     };
     
+    this.setValue = function (value) {
+        currentValue = value;
+    };
+    
+    this.getValue = function() {
+        return currentValue;
+    };
+    
     init();
 };
