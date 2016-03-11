@@ -18,4 +18,16 @@ var Board = function (columns, rows) {
       group.x = x;
       group.y = y;
     };
+    
+    var getRandomTile = function () {
+        var randomRow = Math.floor(Math.random()*rows);
+        var randomColumn = Math.floor(Math.random()*columns);
+
+        var tile = board[randomRow][randomColumn];
+        return tile;
+    };
+    
+    var setMines = function () {
+
+    };
 }
