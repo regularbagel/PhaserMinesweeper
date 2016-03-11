@@ -14,6 +14,8 @@ var Board = function (columns, rows) {
         board.push(row);
     }
     
+    setMines();
+    
     this.moveTo = function (x, y) {
       group.x = x;
       group.y = y;
